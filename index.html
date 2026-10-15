@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>วันนี้กินอะไรดี? 🍲</title>
+    <title>What's for Lunch? 🍲</title>
     <style>
-        /* ตกแต่งหน้าตาเว็บสไตล์มินิมอลพาสเทล */
+        /* Elegant pastel minimal design */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -64,7 +64,7 @@
             transform: translateY(1px);
         }
 
-        /* เอฟเฟกต์หมุนตอนสุ่ม */
+        /* Bounce animation while rolling */
         .rolling {
             animation: bounce 0.1s infinite;
         }
@@ -78,35 +78,33 @@
 <body>
 
     <div class="container">
-        <h1>วันนี้กินอะไรดี? 🤔</h1>
-        <div id="result">กดปุ่มด้านล่างเพื่อสุ่มเมนู</div>
-        <button onclick="randomFood()">สุ่มเลย!</button>
+        <h1>What's for Lunch? 🤔</h1>
+        <div id="result">Click the button below to decide</div>
+        <button onclick="randomFood()">Let's Spin!</button>
     </div>
 
     <script>
-        // รายการอาหารที่ต้องการสุ่ม
+        // List of international and local menu choices
         const foods = [
-            "กะเพราไข่ดาว 🍳",
-            "ส้มตำไก่ย่าง 🍗",
-            "ชาบู/หมูกระทะ 🥓",
-            "ก๋วยเตี๋ยวเรือเส้นเล็ก 🍜",
-            "ข้าวผัดอเมริกัน 🍛",
-            "ซูชิ 🍣",
-            "สเต็กไก่พริกไทยดำ 🥩",
-            "ข้าวมันไก่ผสม 🐔",
-            "สลัดผักเพื่อสุขภาพ 🥗"
+            "Basil Chicken with Fried Egg 🍳",
+            "Papaya Salad with Grilled Chicken 🍗",
+            "Shabu-Shabu / Hotpot 🥓",
+            "Boat Noodles with Beef/Pork 🍜",
+            "American Fried Rice 🍛",
+            "Sushi Platter 🍣",
+            "Black Pepper Chicken Steak 🥩",
+            "Hainanese Chicken Rice 🐔",
+            "Healthy Caesar Salad 🥗"
         ];
 
         function randomFood() {
             const resultDiv = document.getElementById('result');
             const button = document.querySelector('button');
             
-            // ปิดการคลิกชั่วคราวขณะสุ่ม
             button.disabled = true;
             resultDiv.classList.add('rolling');
             
             let count = 0;
-            // ทำแอนิเมชันสลับสุ่มเมนูเร็ว ๆ ก่อนหยุด
             const interval = setInterval(() => {
                 const tempIndex = Math.floor(Math.random() * foods.length);
                 resultDiv.innerText = foods[tempIndex];
@@ -114,7 +112,6 @@
                 
                 if (count > 15) {
                     clearInterval(interval);
-                    // สุ่มจริงครั้งสุดท้าย
                     const finalIndex = Math.floor(Math.random() * foods.length);
                     resultDiv.innerText = foods[finalIndex];
                     resultDiv.classList.remove('rolling');
